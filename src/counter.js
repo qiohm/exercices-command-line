@@ -15,6 +15,23 @@ L'execution de ce programme devra afficher sur le terminal tous les nombres de m
 7
 9
  */
+if (process.argv.length !== 5) {
+    console.log('usage: node counter.js min max step')
+    process.exit(1)
+}
+/* if (isNaN(process.argv.slice(2))) {
+    console.log('Error: value must be a number')
+    process.exit(1)
+} */
+if (
+    isNaN(process.argv[2]) ||
+    isNaN(process.argv[3]) ||
+    isNaN(process.argv[4])
+) {
+    console.log('Error: value(s) must be a number')
+    process.exit(1)
+}
+
 let min = Number(process.argv[2])
 //console.log(typeof min)
 let max = Number(process.argv[3])
@@ -24,20 +41,6 @@ const counter = () => {
     for (let n = min; n <= max; n += step) {
         console.log(n)
     }
-}
-
-if (process.argv.length !== 5) {
-    console.log('usage: node counter.js min max step')
-    process.exit(1)
-}
-
-/* if (isNaN(process.argv.slice(2))) {
-    console.log('Error: value must be a number')
-    process.exit(1)
-} */
-if (isNaN(process.argv[2] && isNaN(process.argv[3]) && process.argv[4])) {
-    console.log('Error: value must be a number')
-    process.exit(1)
 }
 
 counter()
