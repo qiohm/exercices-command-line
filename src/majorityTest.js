@@ -14,15 +14,19 @@ import readlineSync from 'readline-sync'
 import chalk from 'chalk'
 
 console.log(
-    chalk.red(
+    chalk.underline.inverse(
         'Au nom du Grand Ga-Bu 1er, veuillez remplir votre devoir de citoyen.'
     )
 )
 
-let name = readlineSync.question('Indiquez votre nom: ')
-let surname = readlineSync.question('..Ainsi que votre prénom: ')
-let age = readlineSync.question(chalk.red('Et finalement, votre âge: '))
-
+let name = readlineSync.question(`Indiquez votre ` + chalk.red(`nom: `))
+let surname = readlineSync.question('ainsi que votre prénom: ')
+let age_str = readlineSync.question(chalk.red('Et finalement, votre âge: '))
+let age = Number(age_str)
+if (isNaN(age)) {
+    console.log(chalk.blue(`Error !!! Merci de vérifier votre âge`))
+    process.exit(1)
+}
 const adult =
     age < 18
         ? console.log(
