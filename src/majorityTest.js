@@ -23,11 +23,6 @@ let name = readlineSync.question('Indiquez votre nom: ')
 let surname = readlineSync.question('..Ainsi que votre prénom: ')
 let age = readlineSync.question(chalk.red('Et finalement, votre âge: '))
 
-/* const verifNum = (age) =>
-    Number(age) === age
-        ? adult(age)
-        : console.log(chalk.blue(`Veuillez entrer un nombre!`)) */
-
 const adult =
     age < 18
         ? console.log(
